@@ -1,0 +1,15 @@
+POST http://localhost:3000/api/reservas
+Content-Type: application/json
+
+{
+    "nombre": "Maria",
+    "apellido": "Sanchez",
+    "email": "maria@gmail.com",
+    "numeroPersonas": 2,
+    "hora": "10:00",
+    "fecha": "2024-10-10"
+}
+
+###
+
+GET http://localhost:3000/api/reservas

@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Aprendiendo SASS, Gulp y CSS grid",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -24,6 +25,7 @@
     ">1%"
   ],
   "dependencies": {
+    "axios": "^1.7.9",
     "postcss": "^8.4.4"
   }
 }

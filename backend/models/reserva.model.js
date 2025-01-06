@@ -12,8 +12,7 @@ const reservaSchema = new moongoose.Schema({
     email: {
         type: String,
         required: true,
-        trim: true,
-        unique: true
+        trim: true
     },
     numeroPersonas: {
         type: Number,

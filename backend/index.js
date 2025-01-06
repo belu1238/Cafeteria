@@ -1,5 +1,5 @@
 import app from "./app.js";
-import { connetDb } from "./config.js";
+import { connetDb } from "./db.js";
 
 connetDb();
 

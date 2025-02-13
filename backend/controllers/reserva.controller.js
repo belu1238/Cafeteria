@@ -1,5 +1,6 @@
 import Reserva from "../models/reserva.model.js";
 import reservaSchema from "../utils/reservaValidations.js";
+import { enviarCorreo } from "../utils/emailService.js";
 
 export const getReservas = async(req, res) => {
     try {
@@ -14,17 +15,29 @@ export const createReserva = async(req, res) => {
     const validationResult = reservaSchema.safeParse(req.body);
 
     if(!validationResult.success) {
-        res.status(400).json({
+        return res.status(400).json({
             error: validationResult.error.issues.map((issue) => issue.message),
         });
     }
 
     try {
-    const { nombre, apellido, email, numeroPersonas, hora, fecha } = req.body;
+    const { nombre, apellido, email, fecha, hora, numeroPersonas } = req.body;
 
-    const nuevaReserva = new Reserva({nombre, apellido, email, numeroPersonas, hora, fecha});
+    const nuevaReserva = new Reserva({email, nombre, apellido, fecha, hora, numeroPersonas});
     const guardarReserva = await nuevaReserva.save();
-    res.json(guardarReserva);
+
+    console.log("Datos enviados:", { email , nombre, apellido, fecha, hora, numeroPersonas});
+
+    const correoEnviado =await enviarCorreo(email, nombre, apellido, fecha, hora, numeroPersonas);
+
+    if(correoEnviado.success) {
+        res.status(201).json({ 
+            message: "Correo enviado con exito",
+            reserva: guardarReserva
+        });
+    } else {
+        res.status(500).json({ error: "Error al enviar el correo"});
+    }
     } catch (error) {
         res.status(500).json({error: error.message});
     }  

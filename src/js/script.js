@@ -26,7 +26,6 @@ async function enviarReserva() {
         console.log(reserva);
         
         if(response.ok){
-            // const reservaRealizada = await response.json();
             Swal.fire({
             title: "Reserva Exitosa!",
             text: `Tu reserva ha sido realizada para el ${fecha} a las ${hora}. Te contactaremos para confirmar tu reserva`,
@@ -38,7 +37,7 @@ async function enviarReserva() {
             Swal.fire({
                 icon: "error",
                 title: "Error en la reserva",
-                text: errorData.message || "Ocurrio un problema al solicitar tu solicitud",
+                text: "Ocurrio un problema al solicitar tu solicitud",
             });
             console.log(error);
         }

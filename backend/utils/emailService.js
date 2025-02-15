@@ -42,7 +42,7 @@ const enviarCorreo = async(destinatario, nombre, apellido, fecha, hora, numeroPe
                     ¡Gracias por elegirnos! Te esperamos.
                 </p>
                 <div style="text-align: center; margin-top: 20px;">
-                    <a href="" style="background-color: #C39C63; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">Visitar Sitio</a>
+                    <a href="https://cafeteria-ashy.vercel.app/index.html" style="background-color: #C39C63; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">Visitar Sitio</a>
                 </div>
             </div>
         `;

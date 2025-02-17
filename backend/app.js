@@ -12,5 +12,6 @@ app.use(morgan('dev'));
 app.use(express.json());
 
 app.use("/api", reservaRoutes);
+app.get("/", (req, res) => res.send("Bienvenido a la cafeteria"));
 
 export default app;

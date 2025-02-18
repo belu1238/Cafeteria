@@ -16,7 +16,7 @@ async function enviarReserva() {
     }
 
     try {
-        const response = await fetch('http://localhost:3000/api/reservas', {
+        const response = await fetch('https://cafeteria-backend-kz8x.onrender.com/api/reservas', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
